@@ -1,0 +1,40 @@
+db.foods.insertMany(
+	Array.from({ length: 10000 }).map((_, index) => ({
+		name: [
+			"Olive Bread",
+			"Banana Bread",
+			"Alpha Cheese",
+			"Chart Butter",
+			"Water",
+			"Tofu",
+			"Greenbeans",
+			"Brocolli",
+			"Sweet Greens",
+			"Salmon",
+			"Wow No Cow Milk",
+			"Sparkling Water",
+			"Cornflakes",
+			"Pita Bread",
+			"Avocado Rolls",
+		][index % 15],
+		type: [
+			"Hawaiian",
+			"Italian",
+			"American",
+			"Japanese",
+			"Chinese",
+			"Greek",
+			"Turkish",
+			"Mexican",
+			"English",
+			"French",
+		][index % 10],
+		category: [
+			"Non-traditional",
+			"Traditional",
+			"Fusion",
+		][index % 3],
+		speed: ["slow", "medium", "fast"][index % 3],
+		index: index,
+	}))
+);
