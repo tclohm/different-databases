@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Redis Sample</title>
+</head>
+<body>
+	<h1 id="visitors">loading</h1>
+	<script type="text/javascript">
+		async function registerPageView() {
+			const res = await fetch('/pageview')
+			const { views } = await res.json()
+			document.getElementById('visitors').innerText = `${views} visitors!`
+		}
+		registerPageView();
+	</script>
+</body>
+</html>
