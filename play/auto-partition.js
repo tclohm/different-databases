@@ -24,7 +24,7 @@ async function run() {
 		console.log("create database customers...");
 		await client.query("create database customers");
 
-		const customerClientDB.query(psql1); = pg.Client({
+		const customerClientDB = pg.Client({
 			"user": "postgres",
 			"password": "postgres",
 			"host": "localhost",
@@ -33,11 +33,11 @@ async function run() {
 		});
 
 		console.log("Connecting to customers db...");
-		await customerClientDB.query(psql1);.connect();
+		await customerClientDB.connect();
 		console.log("Create customer table...");
 		const sql = `create table customers (id serial, name text) 
 					partition by range (id)`;
-		await customerClientDB.query(psql1);.query(sql);
+		await customerClientDB.query(sql);
 		console.log("creating partitions...");
 		/*
 		we are going to support 1B customers
