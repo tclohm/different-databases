@@ -33,3 +33,10 @@ or
 - vacuum (verbose);
 
 ## create index 
+
+- writes a blocked
+- reads work though
+
+## create index concurrently
+- create index concurrently g on grades(g);
+- takes memory and can potential fail
