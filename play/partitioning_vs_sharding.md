@@ -35,3 +35,6 @@ insert into grades_parts select * from grades_org;
 show ENABLE_PARTITION_PRUNING;
 set enable_partition_pruning = on;
 `
+
+
+##### shard -> partition -> index
