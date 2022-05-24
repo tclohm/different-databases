@@ -40,3 +40,27 @@ or
 ## create index concurrently
 - create index concurrently g on grades(g);
 - takes memory and can potential fail
+
+
+
+### Consider a table with three columns, A, B and C. A is an integer primary key (clustered). B and C are integers. There is a composite index on both B and C respectively.
+
+`SELECT A FROM T WHERE B = 1 AND C = 3;`
+- planner will use the B,C composite index
+`SELECT B, C FROM T WHERE A = 1;`
+- planner will use the primary key index
+`SELECT * FROM T WHERE C = 5;`
+- depending on the DB, planner will either use the clustered index to scan the entire table or scan the entire table directly
+
+
+### Table T with a single column A which has an index. The table has 100 million rows.
+`SELECT COUNT(A) FROM T WHERE A BETWEEN (10, 50);`
+`SELECT MAX(A) FROM T;`
+`SELECT MIN(A) FROM T;`
+
+index on A and we only want to count rows between 10 and 50 this is handful and next
+to each other so a b-tree index scan will be great for this. 3 and 4 will use the index
+to jump to the start and the end of the index accordingly (index is sorted)
+
+A table T with columns A, B, and C. We have an index on A and another index on B
+index only scan: `SELECT COUNT(*) FROM T WHERE A > 1 AND A < 10;`
