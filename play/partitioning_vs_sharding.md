@@ -3,7 +3,7 @@
 - HP splits big table into multiple tables in the same database, client agnostic
 - Sharding splits big tables into mutiple tables across multiple database servers
 - HP table name changes (or schema)
-- Sharding everthing is the same buy server changes
+- Sharding everthing is the same but server changes
 
 ### Pros of Partitioning
 - improves query performance when accessing a single partition
@@ -38,3 +38,10 @@ set enable_partition_pruning = on;
 
 
 ##### shard -> partition -> index
+
+
+# Sharding
+- split data into different databases
+- use consistent hashing to split data
+- ex: num(input2) % n -- if you have n nodes
+
