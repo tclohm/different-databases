@@ -58,15 +58,13 @@ app.get("/:urlId", async (req, res) => {
 
 	const result = await clients[server].query("SELECT * FROM URL_TABLE WHERE URL_ID = $1", [urlId]);
 
-	console.log(result)
-
 	if (result.rowCount == 0) {
 		res.sendStatus(404);
 	}
 
 	res.send({
 		urlId,
-		url,
+		"url": result.rows[0].url,
 		server
 	})
 
