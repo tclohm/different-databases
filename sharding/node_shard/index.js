@@ -49,7 +49,7 @@ async function connect() {
 }
 
 app.get("/", (req, res) => {
-	
+	res.send("a")
 })
 
 app.post("/", async (req, res) => {
